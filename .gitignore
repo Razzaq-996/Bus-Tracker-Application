@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+
+# Production
+build/
+out/
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project specific
+backend/node_modules/
+frontend/node_modules/
+frontend/dist/
+api/node_modules/
+
+# Build artifacts
+frontend/build_error.txt
+
+# Database files
+backend/database/*.db
+backend/database/*.db-shm
+backend/database/*.db-wal
+
+
+
+

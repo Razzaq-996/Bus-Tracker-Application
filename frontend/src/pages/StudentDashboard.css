@@ -1,0 +1,424 @@
+/**
+ * Student Dashboard - Transit-Grade Professional UI
+ * Perfect alignment for all sections with comprehensive hover effects
+ */
+
+/* ========================================
+   DASHBOARD LAYOUT
+   ======================================== */
+.student-dashboard {
+    min-height: 100vh;
+    background: var(--bg);
+    animation: fadeIn 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   HEADER - CLEAN & PROFESSIONAL
+   ======================================== */
+.dashboard-header {
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: var(--space-4) 0;
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    backdrop-filter: blur(12px);
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    flex: 1;
+}
+
+.dashboard-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    margin-bottom: var(--space-1);
+    color: var(--text);
+}
+
+.title-icon {
+    font-size: var(--text-3xl);
+}
+
+.dashboard-subtitle {
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    margin: 0;
+    font-weight: 400;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+/* ========================================
+   BUTTON ICONS - SUBTLE INTERACTION
+   ======================================== */
+.btn-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: var(--text-xl);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.btn-icon:hover {
+    background: var(--elevated);
+    border-color: var(--border-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-icon:active {
+    transform: scale(0.98);
+}
+
+/* ========================================
+   DASHBOARD CONTENT
+   ======================================== */
+.dashboard-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-6);
+}
+
+/* ========================================
+   INFO GRID - PERFECTLY ALIGNED CARDS
+   ======================================== */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+}
+
+.info-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+    cursor: default;
+}
+
+.info-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+    border-color: var(--border-hover);
+}
+
+.info-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+    transition: transform var(--transition-fast);
+}
+
+.info-card:hover .info-icon {
+    transform: scale(1.05);
+}
+
+.info-content {
+    flex: 1;
+}
+
+.info-label {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: var(--space-1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-value {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: var(--space-1);
+}
+
+.info-meta {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ========================================
+   ATTENDANCE SECTION - PERFECTLY ALIGNED
+   ======================================== */
+.attendance-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    margin-bottom: var(--space-6);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+}
+
+.attendance-section:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.section-title {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    margin-bottom: var(--space-3);
+    color: var(--text);
+}
+
+.section-description {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-6);
+    font-size: var(--text-base);
+    line-height: 1.6;
+}
+
+.attendance-buttons {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.attendance-buttons .btn {
+    min-width: 200px;
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--text-base);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+}
+
+.attendance-buttons .btn span {
+    font-size: var(--text-xl);
+}
+
+/* ========================================
+   MAP SECTION - PERFECTLY ALIGNED
+   ======================================== */
+.map-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    margin-bottom: var(--space-6);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+}
+
+.map-section:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.map-section .section-title {
+    text-align: left;
+    margin-bottom: var(--space-4);
+}
+
+/* ========================================
+   INSTRUCTIONS SECTION - PERFECTLY ALIGNED
+   ======================================== */
+.instructions-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    margin-bottom: var(--space-6);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+}
+
+.instructions-section:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.instructions-section .section-title {
+    text-align: left;
+    margin-bottom: var(--space-5);
+}
+
+.instructions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.instructions-list li {
+    padding: var(--space-4);
+    margin-bottom: var(--space-3);
+    background: var(--elevated);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--accent);
+    transition: all var(--transition-fast);
+    animation: fadeIn 300ms cubic-bezier(0.4, 0, 0.2, 1) backwards;
+    line-height: 1.6;
+}
+
+.instructions-list li:nth-child(1) {
+    animation-delay: 50ms;
+}
+
+.instructions-list li:nth-child(2) {
+    animation-delay: 100ms;
+}
+
+.instructions-list li:nth-child(3) {
+    animation-delay: 150ms;
+}
+
+.instructions-list li:nth-child(4) {
+    animation-delay: 200ms;
+}
+
+.instructions-list li:hover {
+    background: var(--card);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-sm);
+    border-left-width: 4px;
+}
+
+.instructions-list strong {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* ========================================
+   ROUTE SELECTION SECTION - PERFECTLY ALIGNED
+   ======================================== */
+.selection-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    margin-bottom: var(--space-6);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+}
+
+.selection-section:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.selection-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+}
+
+.selection-buttons {
+    display: flex;
+    gap: var(--space-3);
+    justify-content: flex-end;
+}
+
+/* ========================================
+   LOADING & ERROR STATES
+   ======================================== */
+.dashboard-loading,
+.dashboard-error {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-6);
+    text-align: center;
+    padding: var(--space-6);
+}
+
+.dashboard-loading .spin {
+    font-size: 3rem;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: var(--space-4);
+        align-items: flex-start;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .dashboard-content {
+        padding: var(--space-6) var(--space-4);
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .attendance-buttons {
+        flex-direction: column;
+    }
+
+    .attendance-buttons .btn {
+        width: 100%;
+    }
+
+    .selection-buttons {
+        flex-direction: column;
+    }
+
+    .selection-buttons .btn {
+        width: 100%;
+    }
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+
+    .student-dashboard,
+    .info-card,
+    .instructions-list li,
+    .attendance-section,
+    .map-section,
+    .instructions-section,
+    .selection-section {
+        animation: none;
+    }
+
+    .info-card:hover,
+    .instructions-list li:hover {
+        transform: none;
+    }
+
+    .info-card:hover .info-icon {
+        transform: none;
+    }
+}

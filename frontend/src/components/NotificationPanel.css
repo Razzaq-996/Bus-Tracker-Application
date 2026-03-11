@@ -1,0 +1,198 @@
+/**
+ * Notification Panel Styles
+ */
+
+.notification-panel-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: var(--z-modal-backdrop);
+    animation: fadeIn var(--transition-fast);
+}
+
+.notification-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 450px;
+    background: var(--color-bg-secondary);
+    border-left: 1px solid var(--color-border);
+    box-shadow: var(--shadow-xl);
+    display: flex;
+    flex-direction: column;
+    z-index: var(--z-modal);
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg-tertiary);
+}
+
+.panel-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-xl);
+    margin: 0;
+}
+
+.panel-title span:first-child {
+    font-size: var(--font-size-2xl);
+}
+
+.unread-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    height: 24px;
+    padding: 0 var(--spacing-xs);
+    background: var(--color-error);
+    color: white;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+}
+
+.btn-close {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-md);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-xl);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.btn-close:hover {
+    background: var(--color-bg-elevated);
+    color: var(--color-text-primary);
+}
+
+.panel-content {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.panel-loading,
+.panel-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    gap: var(--spacing-md);
+    color: var(--color-text-tertiary);
+}
+
+.panel-loading .spin {
+    font-size: 2rem;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    opacity: 0.5;
+}
+
+.notifications-list {
+    padding: var(--spacing-sm);
+}
+
+.notification-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+.notification-item:hover {
+    background: var(--color-bg-elevated);
+    border-color: var(--color-primary);
+    transform: translateX(-4px);
+}
+
+.notification-item.unread {
+    background: rgba(99, 102, 241, 0.05);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.notification-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xl);
+    flex-shrink: 0;
+}
+
+.notification-icon.info {
+    background: rgba(59, 130, 246, 0.2);
+}
+
+.notification-icon.warning {
+    background: rgba(245, 158, 11, 0.2);
+}
+
+.notification-icon.error {
+    background: rgba(239, 68, 68, 0.2);
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-title {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-xs) 0;
+}
+
+.notification-message {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--spacing-xs) 0;
+    line-height: 1.5;
+}
+
+.notification-time {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+}
+
+.notification-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: var(--spacing-xs);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    .notification-panel {
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,247 @@
+/**
+ * Map Component - Transit-Grade Styling
+ * Calm, professional animations for bus tracking
+ */
+
+/* ========================================
+   MAP CONTAINER
+   ======================================== */
+.bus-map-container {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px var(--border);
+}
+
+.bus-map {
+    z-index: var(--z-base);
+    border-radius: var(--radius-lg);
+}
+
+/* ========================================
+   MAP OVERLAY - CALM MESSAGING
+   ======================================== */
+.map-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--card);
+    backdrop-filter: blur(12px);
+    padding: var(--space-6) var(--space-8);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+    z-index: 2;
+    text-align: center;
+    animation: fadeInScale 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.map-overlay p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: var(--text-sm);
+}
+
+/* ========================================
+   STOP MARKERS - SUBTLE & CLEAR
+   ======================================== */
+.custom-stop-marker {
+    background: transparent;
+    border: none;
+}
+
+.stop-marker-inner {
+    font-size: 1.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+    transition: all var(--transition-fast);
+}
+
+.custom-stop-marker:hover .stop-marker-inner {
+    transform: scale(1.1);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+/* Visited Stop - Soft Green Glow */
+.visited-stop .stop-marker-inner {
+    font-size: 1.6rem;
+    animation: softGlow 2s ease-in-out infinite;
+}
+
+@keyframes softGlow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 2px 8px rgba(34, 197, 94, 0.4));
+    }
+
+    50% {
+        filter: drop-shadow(0 4px 12px rgba(34, 197, 94, 0.6));
+    }
+}
+
+/* My Stop - Accent Highlight */
+.my-stop .stop-marker-inner {
+    font-size: 1.8rem;
+    filter: drop-shadow(0 3px 8px rgba(37, 99, 235, 0.5));
+}
+
+/* ========================================
+   BUS MARKER - SMOOTH MOVEMENT WITH ROTATION
+   ======================================== */
+.custom-bus-marker {
+    background: transparent;
+    border: none;
+    /* Remove transition to prevent conflicts with LERP animation */
+}
+
+.bus-marker-inner {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bus-icon {
+    font-size: 2rem;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 3px 8px rgba(37, 99, 235, 0.4));
+    /* Smooth rotation transition - handled by JavaScript LERP */
+    transform-origin: center center;
+    will-change: transform;
+    /* Add subtle scale on hover only */
+}
+
+.custom-bus-marker:hover .bus-icon {
+    filter: drop-shadow(0 4px 12px rgba(37, 99, 235, 0.6));
+}
+
+/* Pulse Ring - Subtle Indicator */
+.bus-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(37, 99, 235, 0.15);
+    border-radius: 50%;
+    animation: calmPulse 2.5s ease-out infinite;
+}
+
+@keyframes calmPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(2.2);
+        opacity: 0;
+    }
+}
+
+/* ========================================
+   LEAFLET POPUP CUSTOMIZATION
+   ======================================== */
+.map-popup {
+    text-align: center;
+    padding: var(--space-3);
+}
+
+.map-popup h4 {
+    margin: 0 0 var(--space-2) 0;
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--text);
+}
+
+.map-popup p {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+.leaflet-popup-content-wrapper {
+    background: var(--card) !important;
+    color: var(--text) !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: var(--shadow-lg) !important;
+    border: 1px solid var(--border) !important;
+}
+
+.leaflet-popup-tip {
+    background: var(--card) !important;
+    border: 1px solid var(--border) !important;
+}
+
+/* ========================================
+   ROUTE LINE - PROGRESSIVE DRAW
+   ======================================== */
+.leaflet-interactive {
+    transition: stroke-width var(--transition-fast);
+}
+
+.leaflet-interactive:hover {
+    stroke-width: 6 !important;
+}
+
+/* ========================================
+   RESPONSIVE MAP
+   ======================================== */
+@media (max-width: 768px) {
+    .bus-map-container {
+        border-radius: var(--radius-md);
+    }
+
+    .stop-marker-inner {
+        font-size: 1.3rem;
+    }
+
+    .visited-stop .stop-marker-inner {
+        font-size: 1.4rem;
+    }
+
+    .my-stop .stop-marker-inner {
+        font-size: 1.6rem;
+    }
+
+    .bus-icon {
+        font-size: 1.8rem;
+    }
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    .custom-bus-marker {
+        transition: none;
+    }
+
+    .bus-pulse,
+    .visited-stop .stop-marker-inner {
+        animation: none;
+    }
+
+    .stop-marker-inner,
+    .bus-icon {
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+    }
+}

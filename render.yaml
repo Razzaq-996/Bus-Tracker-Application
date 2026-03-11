@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: college-bus-tracker
+    env: node
+    plan: free
+    buildCommand: |
+      npm install
+      cd backend && npm install
+      cd ../frontend && npm install && npm run build
+    startCommand: cd backend && node server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        value: 5d3d9eb8fd744b5e7d3769ab0de0e55a3365f8c95c30cf15291e3039e839a634
+      - key: JWT_EXPIRES_IN
+        value: 7d

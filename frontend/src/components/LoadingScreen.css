@@ -1,0 +1,65 @@
+/**
+ * Loading Screen Styles
+ */
+
+.loading-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg-primary);
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.loading-spinner {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto var(--spacing-xl);
+}
+
+.spinner-ring {
+    position: absolute;
+    inset: 0;
+    border: 3px solid transparent;
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+}
+
+.spinner-ring:nth-child(2) {
+    border-top-color: var(--color-secondary);
+    animation-duration: 2s;
+    animation-direction: reverse;
+}
+
+.spinner-ring:nth-child(3) {
+    border-top-color: var(--color-accent);
+    animation-duration: 2.5s;
+}
+
+.spinner-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.loading-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-sm);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.loading-text {
+    color: var(--color-text-tertiary);
+    font-size: var(--font-size-base);
+}

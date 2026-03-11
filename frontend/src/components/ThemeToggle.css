@@ -1,0 +1,35 @@
+/**
+ * Theme Toggle - Professional & Subtle
+ */
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: var(--card);
+    border: 1px solid var(--border);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.theme-toggle:hover {
+    background: var(--elevated);
+    border-color: var(--border-hover);
+    transform: translateY(-1px);
+}
+
+.theme-toggle:active {
+    transform: scale(0.98);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .theme-toggle:hover {
+        transform: none;
+    }
+}

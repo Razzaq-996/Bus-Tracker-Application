@@ -7,6 +7,10 @@ const Database = require('better-sqlite3');
 const path = require('path');
 const fs = require('fs');
 
+// Initializers
+const initDatabase = require('../scripts/initDatabase');
+const seedDatabase = require('../scripts/seedData');
+
 class DatabaseService {
     constructor() {
         const dbDir = path.join(__dirname, '..', 'database');
@@ -19,6 +23,30 @@ class DatabaseService {
         this.db.pragma('foreign_keys = ON');
 
         console.log('📦 Database connected');
+
+        // Check if database needs initialization
+        this.ensureDatabaseSchema();
+    }
+
+    /**
+     * Ensure database schema exists and is seeded
+     * Useful for fresh deploys (like on Render)
+     */
+    ensureDatabaseSchema() {
+        try {
+            // Check if users table exists
+            const tableCheck = this.db.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='routes'").get();
+            
+            if (!tableCheck) {
+                console.log('⚠️  Database schema missing. Initializing...');
+                initDatabase(this.db);
+                seedDatabase(this.db);
+                console.log('✅ Database auto-initialization and seeding complete.');
+            }
+        } catch (error) {
+            console.error('❌ Failed to ensure database schema:', error);
+            // Don't throw here, let the first query catch it if it's a transient issue
+        }
     }
 
     /**
